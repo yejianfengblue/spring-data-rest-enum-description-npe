@@ -1,5 +1,23 @@
 ## Issue Description
-In Spring Data REST 3.2.6.RELEASE, given an enum field annotated with org.springframework.data.rest.core.annotation.Description, when get JSON schema, then NullPointerException.  
+In Spring Data REST 3.2.6.RELEASE, given an enum field annotated with org.springframework.data.rest.core.annotation.Description, 
+in this example, gender
+```java
+@Entity
+@Data
+@NoArgsConstructor
+public class User {
+
+    @Id
+    Long id;
+
+    @Description("User name")
+    String name;
+
+    @Description("User gender, MALE or FEMALE")
+    Gender gender;
+}
+```
+when get JSON schema, then NullPointerException.  
 
 ## Reproduce Issue Steps
 1. Run this Spring Boot application on localhost:8080
